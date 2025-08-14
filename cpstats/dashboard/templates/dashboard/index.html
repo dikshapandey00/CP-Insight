@@ -1,0 +1,136 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CP Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}" />
+    {% tailwind_css %}
+  </head>
+  <body class="bg-blue-50 min-h-screen flex flex-col">
+    <!-- Heading at top -->
+    <header class="py-6">
+      <h1 class="text-3xl font-bold text-gray-800 text-center">
+        Competitive Programming Stats
+      </h1>
+    </header>
+
+    <!-- Cards centered -->
+    <main class="flex-grow flex items-center justify-center">
+      <div
+        id="card-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl w-full px-8"
+      >
+        <!-- Codeforces Card -->
+        <div
+          class="flex flex-col items-center bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+          id="cf"
+        >
+          <img
+            src="{% static 'images/codeforces.png' %}"
+            alt="CodeForces"
+            class="w-24 h-25 mb-6 object-contain"
+          />
+          <input
+            id="cf-input"
+            type="text"
+            placeholder="Username"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            id="cf-fetch"
+            type="submit"
+            class="w-full py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition"
+          >
+            Fetch
+          </button>
+
+          <!-- Stats output -->
+          <div id="cf-result" class="text-left text-gray-700 mt-2"></div>
+
+          <!-- Reset button at bottom right -->
+        </div>
+
+        <!-- LeetCode Card -->
+        <div
+          class="flex flex-col items-center bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+          id="lc"
+        >
+          <img
+            src="{% static 'images/leetcode.png' %}"
+            alt="LeetCode"
+            class="w-24 h-24 mb-6 object-contain"
+          />
+          <input
+            id="lc-input"
+            type="text"
+            placeholder="Username"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          />
+          <button
+            id="lc-fetch"
+            type="submit"
+            class="w-full py-3 bg-yellow-500 text-white rounded-lg font-medium hover:bg-yellow-600 transition"
+          >
+            Fetch
+          </button>
+          <div id="lc-result" class="text-left text-gray-700 mt-2"></div>
+        </div>
+
+        <!-- CodeChef Card -->
+        <div
+          class="flex flex-col items-center bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+          id="cc"
+        >
+          <img
+            src="{% static 'images/codechef.png' %}"
+            alt="CodeChef"
+            class="w-25 h-24 mb-6 object-contain"
+          />
+          <input
+            id="cc-input"
+            type="text"
+            placeholder="Username"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+          <button
+            id="cc-fetch"
+            type="submit"
+            class="w-full py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
+          >
+            Fetch
+          </button>
+          <div id="cc-result" class="text-left text-gray-700 mt-2"></div>
+        </div>
+
+        <!-- AtCoder Card -->
+        <div
+          class="flex flex-col items-center bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-2xl hover:scale-105 transition-transform duration-300"
+          id="at"
+        >
+          <img
+            src="{% static 'images/atcoder.png' %}"
+            alt="AtCoder"
+            class="w-24 h-24 mb-6 object-contain"
+          />
+          <input
+            id="at-input"
+            type="text"
+            placeholder="Username"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+          <button
+            id="at-fetch"
+            type="submit"
+            class="w-full py-3 bg-purple-500 text-white rounded-lg font-medium hover:bg-purple-600 transition"
+          >
+            Fetch
+          </button>
+          <div id="at-result" class="text-left text-gray-700 mt-2"></div>
+        </div>
+      </div>
+    </main>
+    <script src="{% static 'data.js' %}"></script>
+  </body>
+</html>
